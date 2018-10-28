@@ -22,3 +22,10 @@ ggplot(data,  aes(x =`Game`, y = `QBR`, col = Player, label = OPP))  +
   ggtitle("Adjusted QBR over time for UGA QBs in first two seasons") + 
   geom_hline(yintercept = mean(data$QBR)) 
 
+
+
+ggplot(data,  aes(x =`DEF`, y = `QBR`, col = Player, label = OPP))  + 
+  geom_smooth(method = 'loess', se = FALSE) + geom_text() + 
+  ggtitle("Adjusted QBR versus Defensive Rank for UGA QBs in first two seasons") + 
+  geom_hline(yintercept = mean(data$QBR))  + 
+  geom_vline(xintercept = mean(data$DEF))
